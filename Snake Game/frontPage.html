@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnakeMania - Welcome to the world of Snake</title>
+    <link rel="stylesheet" href="front.css">
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+</head>
+<body>
+    <nav id="nav">Hello! User</nav>
+    <div class="outer">
+        <a href="snake.html"><button class="newGame">New Game</button></a>
+        <div id="highestBox">HS: <span id="highScoreValue">0</span></div>
+    </div>
+    
+    <script>
+        // Retrieve the high score from Local Storage
+        const highScore = localStorage.getItem('hiScore');
+        if (highScore) {
+            document.getElementById('highScoreValue').textContent = highScore;
+        }
+        const user = localStorage.getItem('person');
+        if (user) {
+        // Remove surrounding quotation marks from the username
+            const sanitizedUser = user.replace(/^"(.*)"$/, '$1');
+            document.getElementById('nav').textContent = sanitizedUser;
+        }
+    </script>
+</body>
+</html>
